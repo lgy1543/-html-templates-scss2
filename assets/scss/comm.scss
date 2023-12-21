@@ -1,0 +1,153 @@
+@import "variables", 'mixin','font','resset';
+//btn style
+
+//card style
+
+//list style
+
+//layout
+.wrap{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+#header{
+    height:$hdH;
+
+}
+
+#main{
+    flex-grow: 1;
+    /*min-height: calc(100VH - $hdH - $ftH);*/
+}
+#footer{
+    height:$ftH;
+}
+
+//header
+
+#header{
+    .inner{
+        @include flexspacebetween;
+    }
+    .col-right{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .util {
+        ul{
+            display: flex;
+        }
+        a{
+            display: block;
+            height: $hdH;
+            display: flex;
+            align-items: center;
+        }
+    .link-g{
+        &::before{
+            
+            font-family: "Font Awesome 6 free";
+            font-weight: 900;
+        }
+    }
+    .link-lang{
+        &::before{
+            content: "\f0ac";
+        }
+    }
+    .link-search{
+        &::before{
+            content: "\f002";
+        }
+    }
+    .link-my{
+        &::before{
+            content: "\f007";
+        }
+    }
+}
+.gnb-wrap{
+    .inp-burger{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border: none;
+        opacity: 0;
+        visibility: 0;
+        &:checked{
+            //+형제선택자(바로뒤에있는 요소)
+            &+ .label-burger {
+                .bar{
+                    &:nth-child(1){
+                        transform: translatey(3px) rotate(45deg);
+                    }
+                    &:nth-child(2){
+                        display: none;
+                    }
+                    &:nth-child(3){
+                        transform: translatey(-3px) rotate(-45deg);
+                    }
+                    &~#gnb{
+                        left:0
+
+                    }
+                }
+
+            }
+
+        }
+    }
+    
+    .label-burger{
+        
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        border-radius: 20%;
+        .bar{
+            z-index: 1500;
+            display: block;
+            width:20px;
+            height:5px;
+            background: black;
+            transition: all 0.3s
+    } 
+    }
+        
+        
+}
+    
+
+    #gnb{
+    //display: none;
+
+    width: 100%;
+    background: white;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 380px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    transition: 0.2s;
+    }
+    #logo{
+        position: relative;
+        z-index:1100;
+    }
+}
+        
+    
+    
+
+
+//footer
+
+@import'main','sub1';
